@@ -9,14 +9,20 @@ public class Prime_Chapter11 {
 		for (int k = 0; k < primeNumber.length; k++) {
 			primeNumber[k] = true;
 		}
-		//割る数2から100まで繰り返す
+		
 		for (int i = 2; i<=100; i++) {
-			//kが2から割られる数になるまで繰り返し、素数を出力する
-			for(int k=2; ( k < i && i % k != 0 ) || k == i; k++){
-				if(k==i){
-					System.out.println(k);
-				}
-			}
-		 }
+            for (int r = 2; r < i; r++) {
+                if (i % r == 0) {
+                	primeNumber[i - 1] = false;
+                    break;  
+                }
+            }	
+		}
+        // 素数を出力する
+        for (int j = 0; j < primeNumber.length; j++) {
+            if (primeNumber[j] == true) {
+                System.out.println(j + 1);
+            }
+        }
 	}
 }
